@@ -1,0 +1,27 @@
+.h-main {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+  margin: 10px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 10px;
+}
+
+.nav-item a {
+  color: rgb(47, 47, 47);
+  text-decoration: none;
+}
+
+.selected {
+  color: red;
+  font-weight: 700;
+}
