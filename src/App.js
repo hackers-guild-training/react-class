@@ -3,9 +3,9 @@ import NavBarHeader from "./components/NavBarHeader";
 import "bootstrap";
 import HomeCard from "./components/HomeCard";
 import { useEffect, useState } from "react";
+import BlogList from "./components/BlogList";
 function App() {
   let [count, setCount] = useState(0);
-  const [blogPosts, setPost] = useState([]);
 
   let number = 0;
   const incrementNumber = () => {
@@ -17,52 +17,6 @@ function App() {
     setCount(increment);
     console.log(number);
   };
-
-  const renderPosts = () => {
-    // console.log(blogPosts);
-    // update this function to render all the 100 elements from the server
-    if (blogPosts.length > 0) {
-      console.log(blogPosts[0]);
-      const { title, body } = blogPosts[0];
-      return (
-        <li
-          style={{
-            border: "1px solid black",
-            width: 500,
-            borderRadius: 5,
-            textAlign: "left",
-            padding: 15,
-          }}
-        >
-          <p style={{ textTransform: "uppercase" }}>
-            <strong>{title}</strong>
-          </p>
-          <p>{body}</p>
-        </li>
-      );
-    }
-  };
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => {
-        if (response.status !== 200) {
-          throw `Something went wrong, status:  ${response.status}`;
-        }
-        return response.json();
-      })
-      .then((json) => {
-        setPost(json);
-        console.log(json);
-      })
-      .catch((err) => {
-        console.log("CAUGHT: ", err);
-      });
-
-    // next line
-
-    // .then((response) => response.json())
-    //   .then((json) => setPost(json));
-  }, []);
 
   return (
     <div className="App">
@@ -113,7 +67,9 @@ function App() {
         </ul>
       </header>
       <h2>BlogPosts</h2>
-      <ul style={{ listStyle: "none" }}>{renderPosts()}</ul>
+      <div className="list-container">
+        <BlogList />
+      </div>
     </div>
   );
 }
