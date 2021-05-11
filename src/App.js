@@ -67,7 +67,7 @@ function App() {
         </ul>
       </header>
       <h2>BlogPosts</h2>
-      <div className="list-container">
+      <div>
         <BlogList />
       </div>
     </div>
