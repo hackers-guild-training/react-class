@@ -27,6 +27,8 @@ class Animal {
   color = "";
   name = "";
   texture = "";
+  static race = "mandalorian";
+
   // Methods
   constructor(color, name, texture) {
     this.color = color;
@@ -40,21 +42,43 @@ class Animal {
   move() {
     console.log("walking");
   }
-  communicate() {
-    console.log("Hello");
+  communicate(language) {
+    console.log(language);
   }
   changeName(newName) {
     this.name = newName;
   }
 }
 
+class Dog extends Animal {
+  bark() {
+    // this.communicate("woof");
+  }
+}
+
+console.log(Animal.race);
+
 // instatiation of object
-let dog = new Animal("brown", "bill", "fur");
+let dog = new Dog("brown", "bill", "fur");
 let snake = new Animal("silver gray", "cobra", "scales");
 
 console.log(dog.name);
 dog.changeName("jerry");
-console.log(dog.name);
+// console.log(dog.bark());
 // static properties and methods
 // inheritance
 // this keyword
+
+const ob = {
+  uName: "joe",
+  printName: function () {
+    console.log(this.name);
+  },
+};
+
+ob.printName();
+//super
+
+// class NavBar extends React.Component {}
+
+// Backend
